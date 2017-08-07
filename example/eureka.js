@@ -9,7 +9,7 @@ const client = new Eureka({
   // application instance information
   instance: {
     app: 'jqservice',
-    hostName: 'localhost',
+    hostName: 'joe-mac',
     ipAddr: '127.0.0.1',
     port: {
       '$': 8080,
@@ -34,7 +34,6 @@ const client = new Eureka({
       user: 'saluki',
       password: 'saluki'
     };
-    console.log(requestOpts);
     done(requestOpts);
   }
 });
@@ -43,6 +42,7 @@ client.start(function(){
   let instances = client.getInstancesByAppId('SALUKI2.EXAMPLE.SERVER:1.0.0');
   console.log(instances);
 });
+
 
 
 
