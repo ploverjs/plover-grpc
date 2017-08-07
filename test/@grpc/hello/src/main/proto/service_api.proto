@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_package = "com.qingguatang.gateway.api";
+option java_outer_classname = "ServiceAPIProto";
+
+package com.qingguatang.gateway.api;
+
+// API服务
+service ServiceAPI {
+    // 请求服务
+    rpc request (Request) returns (Response) {
+    }
+}
+
+// 请求参数
+message Request {
+    AppInfo appInfo = 1; //app信息
+    string apiName = 2; //api的名称
+    string token = 3; // token，主要包含了用户信息
+    string encrypt = 4; //加密字符串，先预留
+    string param = 5; //请求参数 json string
+}
+// app的基础信息
+message AppInfo {
+    string appVersion = 1; //APP设备版本号，比如5.0.2.0
+    string screen_width = 2; // 设备的分辨率宽度
+    string screen_height = 3; // 设备的分辨率高度
+    string os_version = 4; // 操作系统的版本, 比如iOS 10.0.2 ，Android 4.4.1
+    string device_brand = 5; //设备的品牌，例如apple、xiaomi、oppo、vivo等
+    string device_version = 6; //设备的型号，例如iPhone5、iPhone6、iphone7等
+    string device_id = 7; //设备id
+    string channel = 8; // app下载通道，苹果渠道为 appstore
+    string lanuage = 9; // 语言，默认是zh
+    string app_name = 10; //app名称，比如 poseidon
+}
+
+// API 返回模型
+message Response {
+    int32 code = 1; // code 遵循http返回code定义 200:成功 401:未授权 404:api不存在 500:请求参数错误 503:api内部错误
+    string errorMessage = 2; // 错误消息内容
+    string data = 3; //json string
+}

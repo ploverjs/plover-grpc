@@ -16,8 +16,10 @@ exports.grpc = {
   root:join(__dirname,"../../../@grpc"),
   name: pkg.name,
   version: pkg.version,
+  user:'saluki',
+  password:'saluki',
   urls: 'http://eureka.qingguatang.com/eureka/apps/',
   services: {
-    HelloAPI: 'io.grpc.examples.helloworld.Greeter:SALUKI2.EXAMPLE.SERVER:1.0.0'
+    ServiceAPI: 'com.qingguatang.gateway.api.ServiceAPI:rome-api:1.0.0'
   }
 };

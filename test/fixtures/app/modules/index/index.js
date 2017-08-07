@@ -1,12 +1,9 @@
 exports.view = async ctx => {
-  try {
-    const data = await ctx.grpc.HelloAPI.sayHello({
-      name: 'joe'
-    });
-    console.log(data);
-  } catch (e) {
-    console.log(e);
-  }
+  const data = await ctx.grpc.ServiceAPI.request({
+    param: JSON.stringify({ "pageNum": 0, "pageSize": 1 }),
+    apiName: "/documentAPI/query"
+  });
+  console.log(data);
 
   ctx.render({ name: 'plover' }, { type: 'json' });
 };
