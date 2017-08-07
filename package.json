@@ -1,6 +1,6 @@
 {
   "name": "plover-grpc",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "plover grpc client",
   "main": "lib/index",
   "scripts": {
