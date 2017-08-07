@@ -1,8 +1,12 @@
 exports.view = async ctx => {
-  const data = await ctx.grpc.HelloAPI.SayHello({
+  try {
+  const data = await ctx.grpc.HelloAPI.sayHello({
     name:'joe'
   });
- // ctx.render(data, { type: 'json' });
-  console.log(data);
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+  }
+
   ctx.render({name: 'plover' }, { type: 'json' });
 };

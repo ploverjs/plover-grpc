@@ -9,9 +9,13 @@ describe('plugin', () => {
 
   app.install(require('../lib/plugin'));
 
-
-  it('works', async () => {
-    const o = await app.get('/');
-    o.body.should.eql({ name: 'plover' });
+  it('works', async() => {
+    try {
+      await app.ready();
+      const o = await app.get('/');
+      o.body.should.eql({ name: 'plover' });
+    } catch (e) {
+      console.log(e);
+    }
   });
 });
