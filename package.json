@@ -1,6 +1,6 @@
 {
   "name": "plover-grpc",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "plover grpc client",
   "main": "lib/index",
   "scripts": {
@@ -21,7 +21,8 @@
     "grpc": "^1.4.1",
     "ip": "^1.1.5",
     "lodash": "^4.17.4",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "node-schedule": "^1.2.3"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^1.2.0",

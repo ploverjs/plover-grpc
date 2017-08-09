@@ -20,6 +20,6 @@ exports.grpc = {
   password:'saluki',
   urls: 'http://eureka.qingguatang.com/eureka/apps/',
   services: {
-    ServiceAPI: 'com.qingguatang.gateway.api.ServiceAPI:rome-api:1.0.1'
+    ServiceAPI: 'com.qingguatang.gateway.api.ServiceAPI:rome-api:1.0.0'
   }
 };
