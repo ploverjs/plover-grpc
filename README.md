@@ -8,34 +8,26 @@ npm install plover-grpc -S
 
 ## Usage
 ```js
-const Saluki2Client = require('saluki2-node')
-// or if you use compiler
-import Saluki2Client from 'saluki2-node'
-
-const client = new Saluki2Client({
-  // ... config here
-})
+const data = await ctx.grpc.xxAPI.xxMethod({
+    param: JSON.stringify({ "pageNum": 0, "pageSize": 1 }),
+    apiName: "/documentAPI/query"
+});
 
 ```
 
 ## Config
 ```js
-// your config.js
-const pkg = require('./package.json') // import your package.json
+const pkg = require('./../package.json')
 
-module.exports = {
-  root: __dirname, // your project root path
-  port: 3000 // your node application port
-  // saluki2 config
-  saluki2: {
-    appName: pkg.name, // node application name
-    version: pkg.version, // node application version
-    // eureka server urls
-    urls: 'http://10.42.169.144:8761/eureka/apps,http://10.42.10.250:8761/eureka/apps,http://10.42.140.37:8761/eureka/apps',
-    // service dictionary
-    services: {
-      UserService: 'com.quancheng.zeus.service.UserService:zeus-service:1.0.0'
-    }
+exports.grpc = {
+  root:join(__dirname,"../../../@grpc"),
+  name: pkg.name,
+  version: pkg.version,
+  user:'xx',
+  password:'xx',
+  urls: 'http://xxx/eureka/apps/',
+  services: {
+    ServiceAPI: 'xxx:xxx:xxx'
   }
-}
+};
 ```
